@@ -1,3 +1,32 @@
+### Pickle
+To get all the signals concatenated into just one 
+pickle with train/test splits just run `python to_pickle.py`
+Files will be converted into one pickle in the following format:
+```
+{
+ "train": [
+    1 x class name,
+    1 x grasp outcome: 0 - stable, 1 - slipped, 
+    24 * 3 x electrodes values, 
+    1 x palm orientation: 0 - down, 1 - middle, 2 - side
+ ]
+ 
+ "test": [
+    ...
+  ]
+    
+} -> N x [1, 1, 72, 1]
+```
+
+### Data description
+Data description reference https://www.syntouchinc.com/wp-content/uploads/2018/08/BioTac-Manual-V.21.pdf
+Each sensor consists of an array of 24 electrodes.
+```
+As forces are applied to the skin, the skin and fluid deform. Changes in
+impedance as the fluid deforms are detected by an array of electrodes on the
+surface of the BioTac core.
+```
+
 # BioTacSp Stability Set (BTS3) V2
 
 This dataset is an extended version of the previously introduced [BioTacSp Images](https://github.com/yayaneath/biotac-sp-images) by Zapata-Impata et. al.
